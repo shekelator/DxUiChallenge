@@ -15,8 +15,9 @@ require.config({
 	}
 });
 
-require(["jquery","underscore","backbone"],
-	function($, _, Backbone) {
-
-		alert("hello: " + Backbone);
+require(["jquery","underscore","backbone", "./UserListModel", "./UserCollection"],
+	function($, _, Backbone, UserListModel, UserCollection) {
+		var userCollection = new UserCollection();
+		var userListModel = new UserListModel({"userListCollection": userCollection})
+		console.log("Collection and root model created.")
 	});
