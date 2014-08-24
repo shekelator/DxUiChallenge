@@ -1,0 +1,13 @@
+{
+  "name": "DxUiChallenge",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shekelator/DxUiChallenge",
+  "private": true,
+  "dependencies": {
+    "express": "^4.8.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.8.0"
+  }
+}

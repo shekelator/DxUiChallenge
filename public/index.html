@@ -1,0 +1,27 @@
+<html>
+<head><title>User Management</title></head>
+<link rel="stylesheet" type="text/css" href="/styles.css"></style>
+<body>
+<div id="users">
+	<h2>User list</h2>
+	<p><input type="text" id="filter-users" placeholder="Filter" /></p>
+	<p>Showing <span class="number-users-shown">0</span> of <span class="-total-number-users">0</span> users</p>
+	<p><button type="button" class="add-new-user-button">Add new user</button></p>
+	<table id="user-list-table">
+		<thead>
+			<tr>
+				<th>Last Name</th>
+				<th>First Name</th>
+				<th>Age</th>
+				<th>Email</th>
+				<th>Created on</th>
+				<th>Last edited</th>
+				<th>Active</th>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.min.js" data-main="app"></script>
+</body>
+</html>
