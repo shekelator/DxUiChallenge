@@ -50,11 +50,12 @@ define(["jquery","underscore","backbone", "sinon", "UserCollection", "UserModel"
 		});
 
 		it("Holds users", function() {
-			var coll = new UserCollection(users);
-			server.respondWith("GET", "/api/data", [200, {"Content-Type": "application/json"}, JSON.stringify(users)]);
+			server.respondWith("GET", "../api/data", [200, {"Content-Type": "application/json"}, JSON.stringify(users)]);
+			var coll = new UserCollection();
 			server.respond();
 			expect(coll.length).toBe(3);
 			expect(coll.filter(function(item) { return item.get("active");}).length).toBe(2);
 		});
+
 	});
 });

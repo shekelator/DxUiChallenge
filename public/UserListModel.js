@@ -4,8 +4,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 
 		defaults: {
-			"userCount": 0,
-			"userDisplayStart": 0,
+			"userCollection": undefined,
 			"filter": ""
 		}
 	});

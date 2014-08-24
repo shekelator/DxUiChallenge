@@ -5,17 +5,13 @@ define(["jquery", "underscore", "backbone", "UserModel"], function($, _, Backbon
 
 		tagName: "tr",
 
-		render: function() {
-			var row = $("<tr>")
-				.append("td").text(this.model.get("lastName"))
-				.append("td").text("first")
-				.append("td").text("other")
-				.append("td").text("other")
-				.append("td").text("other")
-				.append("td").text("other")
-				.append("td").text("other");
+		template: _.template("<td class='lastName'><%= lastName %></td><td class='firstName'><%=firstName%></td><td class='age'><%= age %></td><td class='email'><%= email %></td><td class='createdOn'><%=createdOn%></td><td class='lastEdited'><%=lastEdited%></td><td class='active'><%=active%></td>"),
 
-			this.append(row.html());
+		render: function() {
+			var newHtml = this.template(this.model.toJSON());
+
+			this.$el.html(newHtml);
+			return this;
 		}
 	});
 	
