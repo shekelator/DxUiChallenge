@@ -8,6 +8,12 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.0"
+    "grunt-contrib-sass": "^0.8.0",
+    "karma": "^0.12.22",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-requirejs": "^0.2.2",
+    "requirejs": "^2.1.14"
   }
 }
