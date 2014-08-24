@@ -15,8 +15,12 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 require.config({
   paths: {
     "jquery": "https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min",
-        "underscore": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min",
-        "backbone": ["https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min"],
+    "underscore": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min",
+    "backbone": "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min",
+    "sinon": "https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.7.3/sinon-min",
+    "UserModel": "public/UserModel",
+    "UserView": "public/UserView",
+    "UserCollection": "public/UserCollection"
   },
   shim: {
     underscore: {
@@ -25,6 +29,9 @@ require.config({
     backbone: {
       deps: ["underscore", "jquery"],
       exports: "Backbone"
+    },
+    sinon: {
+      exports: "sinon"
     }
   },
 
