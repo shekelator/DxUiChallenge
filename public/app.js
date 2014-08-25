@@ -15,10 +15,11 @@ require.config({
 	}
 });
 
-require(["jquery","underscore","backbone", "./UserListModel", "./UserCollection", "UserView"],
-	function($, _, Backbone, UserListModel, UserCollection, UserView) {
+require(["jquery","underscore","backbone", "./UserListModel", "./UserCollection", "UserView", "UserListView"],
+	function($, _, Backbone, UserListModel, UserCollection, UserView, UserListView) {
 		var userCollection = new UserCollection();
 		var userListModel = new UserListModel({userCollection: userCollection});
+		var userListView = new UserListView({model: userListModel, el: $("div#users").get(0)});
 
 		userCollection.on("add", function(item) {
 			$("table tbody").append(new UserView({model: item}).render().el);

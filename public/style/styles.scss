@@ -1,3 +1,13 @@
 body {
 	font-family: verdana;
+
+	table {
+		thead {
+			background-color: gray;
+		}
+
+		td,th {
+			padding: 4px;
+		}
+	}
 }

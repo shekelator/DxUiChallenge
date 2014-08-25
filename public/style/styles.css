@@ -1,4 +1,8 @@
 body {
   font-family: verdana; }
+  body table thead {
+    background-color: gray; }
+  body table td, body table th {
+    padding: 4px; }
 
 /*# sourceMappingURL=styles.css.map */
