@@ -5,6 +5,7 @@ define(["jquery", "underscore", "backbone", "UserListModel"], function($, _, Bac
 			this.collection.on("add", function() {
 				this.render();
 			}, this);
+
 			this.render();
 		},
 
@@ -16,5 +17,6 @@ define(["jquery", "underscore", "backbone", "UserListModel"], function($, _, Bac
 			return this;
 		}
 	});
+
 	return userListView;
 });
