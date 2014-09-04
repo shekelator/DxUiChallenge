@@ -20,7 +20,8 @@ require.config({
     "sinon": "https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.7.3/sinon-min",
     "UserModel": "public/UserModel",
     "UserView": "public/UserView",
-    "UserCollection": "public/UserCollection"
+    "UserCollection": "public/UserCollection",
+    "moment": "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min"
   },
   shim: {
     underscore: {

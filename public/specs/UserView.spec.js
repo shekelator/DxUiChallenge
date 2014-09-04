@@ -25,8 +25,8 @@ define(["jquery","underscore","backbone", "UserModel", "UserView"], function($, 
 				"firstName": "Jack",
 				"age": "3",
 				"email": "jack@billyc.net",
-				"createdOn": "2012-01-07",
-				"lastEdited": "2014-01-12",
+				"createdOn": Date.parse("2012-01-07"),
+				"lastEdited": Date.parse("2014-01-12"),
 				"active": true
 
 			}
@@ -50,36 +50,38 @@ define(["jquery","underscore","backbone", "UserModel", "UserView"], function($, 
 		});
 
 		it("renders correct data in row", function() {
-			expect(dom.find("td.lastName").text()).toBe("Cosgrove");
-			expect(dom.find("td.firstName").text()).toBe("Jack");
-			expect(dom.find("td.age").text()).toBe("3");
-			expect(dom.find("td.email").text()).toBe("jack@billyc.net");
-			expect(dom.find("td.createdOn").text()).toBe("2012-01-07");
-			expect(dom.find("td.lastEdited").text()).toBe("2014-01-12");
-			expect(dom.find("td.active").text()).toBe("true");
+			expect(dom.find("td[data-field='lastName']").text()).toBe("Cosgrove");
+			expect(dom.find("td[data-field='firstName']").text()).toBe("Jack");
+			expect(dom.find("td[data-field='age']").text()).toBe("3");
+			expect(dom.find("td[data-field='email']").text()).toBe("jack@billyc.net");
+			expect(dom.find("td[data-field='createdOn']").text()).toBe("2012-01-07");
+			expect(dom.find("td[data-field='lastEdited']").text()).toBe("2014-01-12");
+			expect(dom.find("td[data-field='active']").text()).toBe("true");
 		});
 
 		it("makes row editable when clicked", function() {
-			expect(dom.find("td.lastName").text()).toBe("Cosgrove");
-			expect(dom.find("td.lastName input").length).toBe(0);
+			expect(dom.find("td[data-field='lastName']").text()).toBe("Cosgrove");
+			expect(dom.find("td[data-field='lastName'] input").length).toBe(0);
 			expect(dom.find("tr.editable").length).toBe(0);
 
-			dom.find("td.lastName").trigger("click");
+			dom.find("td[data-field='lastName']").trigger("click");
 
-			expect(dom.find("td.lastName input").length).toBe(1);
-			expect(dom.find("td.lastName input").val()).toBe("Cosgrove");
+			expect(dom.find("input[data-field='lastName']").length).toBe(1);
+			expect(dom.find("input[data-field='lastName']").val()).toBe("Cosgrove");
 		});
 
 		it("updates data in model when edited", function() {
 			expect(model.get("lastName")).toBe("Cosgrove");
 
-			var el = dom.find("td.lastName");
+			var el = dom.find("td[data-field='lastName']");
 			el.trigger("click");
-			el.find("input").val("Poppies")
-			el.find("input").trigger("blur");
+			dom.find("input[data-field='lastName']").val("Poppies")
+			dom.find("input[data-field='active']").val("false")
+			dom.find("input[data-field='lastName']").trigger("blur");
 
 			expect(model.get("lastName")).toBe("Poppies");
-			expect(el.text()).toBe("Poppies");
+			expect(model.get("active")).toBe(false);
+			expect(dom.find("td[data-field='lastName']").text()).toBe("Poppies");
 		});
 	});
 });

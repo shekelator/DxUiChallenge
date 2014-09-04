@@ -1,5 +1,6 @@
 body {
-  font-family: verdana; }
+  font-family: verdana;
+  font-size: small; }
   body table thead {
     background-color: gray; }
   body table td, body table th {

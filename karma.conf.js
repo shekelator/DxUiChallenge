@@ -16,8 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'test-main.js',
-      {pattern: 'public/*.js', included: false},
-      {pattern: 'public/specs/*spec.js', included: false}
+      {pattern: 'public/*.js', included: false, watched: true},
+      {pattern: 'public/specs/*spec.js', included: false, watched: true}
     ],
 
 
