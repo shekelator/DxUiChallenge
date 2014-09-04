@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
+define(["jquery", "underscore", "backbone", "moment"], function($, _, Backbone, moment) {
 	var userModel = Backbone.Model.extend({
 		initialize: function(attributes) {
 			this.on("change", function(m) {
@@ -9,7 +9,9 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 
 		validate: function() {
-
+			if(this.get("createdOn") > this.get("lastEdited")) {
+				return "Created on date can't be later thant last edited date";
+			}
 		},
 
 		massageData: function(attributes) {
@@ -21,9 +23,12 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 			}
 			// lastEdited should be date
 			if(attributes.lastEdited) {
-				this.set({lastEdited: Date.parse(attributes.lastEdited)}, {silent: true});
+				this.set({lastEdited: moment(attributes.lastEdited)}, {silent: true});
 			}
-
+			// createdOn should be date
+			if(attributes.createdOn) {
+				this.set({createdOn: moment(attributes.createdOn)}, {silent: true});
+			}
 		}
 	});
 	

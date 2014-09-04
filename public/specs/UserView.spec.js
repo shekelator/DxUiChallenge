@@ -1,5 +1,5 @@
 
-define(["jquery","underscore","backbone", "UserModel", "UserView"], function($, _, Backbone, UserModel, UserView) {
+define(["jquery","underscore","backbone", "moment", "UserModel", "UserView"], function($, _, Backbone, moment, UserModel, UserView) {
 
 	describe("UserView", function() {
 		var users = [{
@@ -25,8 +25,8 @@ define(["jquery","underscore","backbone", "UserModel", "UserView"], function($, 
 				"firstName": "Jack",
 				"age": "3",
 				"email": "jack@billyc.net",
-				"createdOn": Date.parse("2012-01-07"),
-				"lastEdited": Date.parse("2014-01-12"),
+				"createdOn": "2012-01-07",
+				"lastEdited": "2014-01-12",
 				"active": true
 
 			}
@@ -54,8 +54,8 @@ define(["jquery","underscore","backbone", "UserModel", "UserView"], function($, 
 			expect(dom.find("td[data-field='firstName']").text()).toBe("Jack");
 			expect(dom.find("td[data-field='age']").text()).toBe("3");
 			expect(dom.find("td[data-field='email']").text()).toBe("jack@billyc.net");
-			expect(dom.find("td[data-field='createdOn']").text()).toBe("2012-01-07");
-			expect(dom.find("td[data-field='lastEdited']").text()).toBe("2014-01-12");
+			expect(moment(dom.find("td[data-field='createdOn']").text()).isSame(moment("2012-01-07"))).toBeTruthy();
+			expect(moment(dom.find("td[data-field='lastEdited']").text()).isSame(moment("2014-01-12"))).toBeTruthy();
 			expect(dom.find("td[data-field='active']").text()).toBe("true");
 		});
 
